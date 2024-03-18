@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myspring.basic.mapper.MemberMapper">
+ <select id="getList" resultType="com.myspring.basic.entity.Member">
+ 	SELECT * FROM member ORDER BY num ASC;
+ </select>
+ <select id="memberoneUser" parameterType="String" resultType="com.myspring.basic.entity.Member">
+ 	select * from member where id = #{id};
+ </select>
+ <insert id="memberInsert" parameterType="com.myspring.basic.entity.Member">
+ 	insert into member(id,pw,email) values(#{id},#{pw},#{email});
+ </insert>
+ <select id="checkMember" parameterType="com.myspring.basic.entity.Member" resultType="com.myspring.basic.entity.Member">
+ 	select * from member where id = #{id} and pw = #{pw};
+ </select>
+ <delete id=""></delete>
+</mapper>
